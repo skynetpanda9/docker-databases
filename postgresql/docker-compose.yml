@@ -1,19 +1,30 @@
-version: '3'
+version: "3"
 services:
-  db:
+  db1: # First database service
     image: postgres
     restart: always
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ./data/db1:/var/lib/postgresql/data # Unique volume
     ports:
-      - 5432:5432  # make sure you don't have another container running on 5432
-
+      - 54321:5432 # Map to a different port
     environment:
-      - POSTGRES_DB=chaiDB
-      - POSTGRES_USER=chaiaurcode
-      - POSTGRES_PASSWORD=chaiaurcode
+      - POSTGRES_DB=akashDB1 # Unique database name
+      - POSTGRES_USER=akash1 # Unique user
+      - POSTGRES_PASSWORD=akash1
 
-  adminer:
+  db2: # Second database service (add more as needed)
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db2:/var/lib/postgresql/data # Unique volume
+    ports:
+      - 54322:5432 # Map to a different port
+    environment:
+      - POSTGRES_DB=akashDB2 # Unique database name
+      - POSTGRES_USER=akash2 # Unique user
+      - POSTGRES_PASSWORD=akash2
+
+  adminer: # Adminer service remains as is
     image: adminer
     restart: always
     ports:

@@ -1,14 +1,26 @@
 version: "3.1"
 
 services:
-  mongo:
+  mongo1: # First database service
     image: mongo
     restart: always
-    container_name: mongo
+    container_name: mongo1
     ports:
-      - 27017:27017 # make sure we don't have another mongo container running on same port
+      - 27018:27017 # Map to a different port
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: root1 # Unique username
+      MONGO_INITDB_ROOT_PASSWORD: example1 # Unique password
     volumes:
-      - ./db_data/:/data/db/
+      - ./db_data1/:/data/db/ # Unique volume
+
+  mongo2: # Second database service (add more as needed)
+    image: mongo
+    restart: always
+    container_name: mongo2
+    ports:
+      - 27019:27017 # Map to a different port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root2
+      MONGO_INITDB_ROOT_PASSWORD: example2
+    volumes:
+      - ./db_data2/:/data/db/ # Unique volume

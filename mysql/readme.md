@@ -23,7 +23,7 @@ docker-compose -f ./mysql/docker-compose.yml up
 To access MySQL monitor and execute sql queries through terminal run the following command and hit enter:
 
 ```bash
-docker-compose -f mysql/docker-compose.yml run db mysql -u chai -p --host=db
+docker-compose -f mysql/docker-compose.yml run db mysql -u akash -p --host=db
 ```
 
 - `-f mysql/docker-compose.yml`: points to the file which we want to run docker compose on. If we have `docker-compose.yml` in root folder we don't need to pass this flag.
@@ -32,7 +32,7 @@ docker-compose -f mysql/docker-compose.yml run db mysql -u chai -p --host=db
 
 - `mysql`: This is the command that will be run within the container. In this case, it's starting the MySQL client.
 
-- `-u chai`: Specifies the MySQL user as `chai` This is the username that will be used when connecting to the MySQL server.
+- `-u akash`: Specifies the MySQL user as `akash` This is the username that will be used when connecting to the MySQL server.
 
 - `-p`: Prompts for the MySQL user's password. **This flag indicates that the user's password will be entered interactively after running the command.**
 
@@ -71,7 +71,7 @@ mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
 +--------------------+
-| chaiDB             |
+| akashDB             |
 | information_schema |
 | performance_schema |
 +--------------------+

@@ -23,7 +23,7 @@ docker-compose -f ./postgresql/docker-compose.yml up
 Run the following command and hit enter to know version of the PostgreSQL:
 
 ```bash
-docker-compose -f postgresql/docker-compose.yml run db psql -U chaiaurcode -p 5432 -h db -d chaiDB -c "SELECT version();"
+docker-compose -f postgresql/docker-compose.yml run db psql -U akashaurcode -p 5432 -h db -d akashDB -c "SELECT version();"
 ```
 
 - `-f postgresql/docker-compose.yml`: points to the file which we want to run docker compose on. If we have `docker-compose.yml` in root folder we don't need to pass this flag.
@@ -32,13 +32,13 @@ docker-compose -f postgresql/docker-compose.yml run db psql -U chaiaurcode -p 54
 
 - `psql`: **Initiates the PostgreSQL command-line client.**
 
-- `-U chaiaurcode`: Specifies the PostgreSQL username as `chaiaurcode`.
+- `-U akashaurcode`: Specifies the PostgreSQL username as `akashaurcode`.
 
 - `-p 5432`: Specifies the port number (5432) on which the PostgreSQL server is running. If the port is `5432` then this flag is optional.
 
 - `-h db`: Specifies the host as `db` where the PostgreSQL server is located.
 
-- `-d chaiDB`: Specifies the name of the PostgreSQL database as `chaiDB`.
+- `-d akashDB`: Specifies the name of the PostgreSQL database as `akashDB`.
 
 - `-c "SELECT version();"`: Executes the SQL command `SELECT version();` on the specified database.
 

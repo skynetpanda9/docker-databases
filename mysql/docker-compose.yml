@@ -2,19 +2,33 @@
 
 version: "3.1"
 services:
-  db:
+  db1: # Define the first database service
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: chaiaurcode
-      MYSQL_DATABASE: chaiDB
-      MYSQL_USER: chai
-      MYSQL_PASSWORD: chai
+      MYSQL_ROOT_PASSWORD: akashaurcode
+      MYSQL_DATABASE: akashDB1 # Unique database name for this instance
+      MYSQL_USER: akash # Unique user for this database
+      MYSQL_PASSWORD: akash
     ports:
-      - 3306:3306 # make sure you don't have another container running on 3306
+      - 33061:3306 # Map to a different port to avoid conflicts
     volumes:
-      - ./mysql:/var/lib/mysql
-  adminer:
+      - ./mysql1:/var/lib/mysql # Unique volume for data persistence
+
+  db2: # Define the second database service (add more as needed)
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: akashaurcode
+      MYSQL_DATABASE: akash2DB2 # Unique database name
+      MYSQL_USER: akash2 # Unique user
+      MYSQL_PASSWORD: akash2
+    ports:
+      - 33062:3306 # Map to a different port
+    volumes:
+      - ./mysql2:/var/lib/mysql # Unique volume
+
+  adminer: # Adminer service remains as is
     image: adminer
     restart: always
     ports:

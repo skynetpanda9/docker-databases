@@ -1,19 +1,27 @@
 # docker compose file for redis and redis-insight with port mapping
 
-version: '3.7'
+version: "3.7"
 
 services:
-  redis:
+  redis1: # First Redis instance
     image: redis:latest
-    container_name: redis
+    container_name: redis1
     restart: always
     ports:
-      - 6379:6379
+      - 6380:6379 # Map to a different port
     volumes:
-      - redis-volume-data:/data
+      - redis-volume-data1:/data # Unique volume
 
+  redis2: # Second Redis instance (add more as needed)
+    image: redis:latest
+    container_name: redis2
+    restart: always
+    ports:
+      - 6381:6379
+    volumes:
+      - redis-volume-data2:/data
 
-  redisinsight:
+  redisinsight: # RedisInsight remains as is
     image: redislabs/redisinsight:latest
     container_name: redisinsight
     ports:
@@ -22,5 +30,6 @@ services:
       - redisinsight-data:/db
 
 volumes:
-  redis-volume-data:
+  redis-volume-data1:
+  redis-volume-data2:
   redisinsight-data:

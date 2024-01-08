@@ -6,4 +6,5 @@ Watch this video for more:
 [Video Link](https://youtube.com/watch?v=j4YeLqxgj1k&si=QnEzRapBusowKLTb)
 
 ## channel
-visit chaiaurcode for more
+
+visit akashaurcode for more.
